@@ -18,25 +18,25 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Set up JDK 17
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install system dependencies
+      - name: Install Build Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y git zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
-          pip install --upgrade pip
-          pip install cython==0.29.36 buildozer virtualenv
+          pip install --upgrade pip setuptools wheel
+          pip install "cython<3.0.0" buildozer virtualenv
 
-      - name: Build with Buildozer
+      - name: Build APK with Buildozer
         run: |
-          buildozer -v android debug
+          yes | buildozer android debug
 
-      - name: Upload APK
+      - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: SGOD-Mod-APK
+          name: SGOD-Mod-Panel-APK
           path: bin/*.apk
