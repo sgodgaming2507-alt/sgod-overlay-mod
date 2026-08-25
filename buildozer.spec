@@ -9,11 +9,9 @@ requirements = python3,kivy==2.3.0,pillow
 orientation = portrait
 fullscreen = 0
 android.permissions = INTERNET,SYSTEM_ALERT_WINDOW
-android.archs = arm64-v8a,armeabi-v7a
+android.archs = arm64-v8a
 android.api = 33
 android.minapi = 21
-android.ndk = 25b
-android.ndk_api = 21
 android.accept_sdk_license = True
 
 android.presplash_filename = presplash.png
