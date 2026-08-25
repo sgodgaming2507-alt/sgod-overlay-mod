@@ -24,9 +24,6 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Clear Buildozer Cache
-        run: rm -rf .buildozer bin
-
       - name: Install Build Dependencies
         run: |
           sudo apt-get update
@@ -34,11 +31,11 @@ jobs:
           pip install --upgrade pip setuptools wheel
           pip install "cython<3.0.0" buildozer virtualenv
 
-      - name: Build APK with Buildozer
+      - name: Build APK
         run: |
-          yes | buildozer -v android debug
+          yes | buildozer android debug
 
-      - name: Upload APK Artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: SGOD-Mod-Panel-APK
