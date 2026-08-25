@@ -15,7 +15,8 @@ android.minapi = 21
 android.ndk = 25b
 android.ndk_api = 21
 android.accept_sdk_license = True
-p4a.branch = release-2024.01.21
+# p4a.branch = release-2024.01.21
+
 
 android.presplash_filename = presplash.png
 android.presplash_color = #000000
